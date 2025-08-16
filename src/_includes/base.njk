@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{% if title %}{{ title }} — {% endif %}{{ siteTitle | default('Pharmaco Banigwa') }}</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  {% include "_includes/header.njk" %}
+  <main class="container">
+    {{ content | safe }}
+  </main>
+  {% include "_includes/footer.njk" %}
+  <div style="display:none"><!-- AdSense: ca-pub-xxxxxxxxxxxxxxxx --></div>
+</body>
+</html>

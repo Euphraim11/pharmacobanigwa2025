@@ -1,0 +1,10 @@
+---
+layout: _includes/base.njk
+---
+<article class="card">
+  <h1>{{ title }}</h1>
+  <p><em>Published: {{ date | date('YYYY-MM-DD') }}</em></p>
+  <div class="prose">{{ content | safe }}</div>
+  <div class="ad">AdSense placeholder — replace with your ad code.</div>
+  <p>Share: <a href="https://www.facebook.com/sharer/sharer.php?u={{ url }}">Share on Facebook</a></p>
+</article>

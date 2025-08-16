@@ -1,0 +1,27 @@
+---
+title: Blog
+layout: _includes/base.njk
+---
+<h1>Blog</h1>
+<input id="search" class="searchbox" placeholder="Search posts... (title or content)" />
+<ul id="results" class="post-list card">
+  {% for post in collections.posts %}
+    <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
+  {% endfor %}
+</ul>
+
+<script>
+fetch('/search-index.json').then(r=>r.json()).then(data=>{
+  var input = document.getElementById('search');
+  var results = document.getElementById('results');
+  input.addEventListener('input', function(){
+    var q = this.value.toLowerCase();
+    if(!q){
+      results.innerHTML = data.map(p=>`<li><a href="${p.url}">${p.title}</a></li>`).join('');
+      return;
+    }
+    var filtered = data.filter(p => (p.title + ' ' + p.content).toLowerCase().indexOf(q) !== -1);
+    results.innerHTML = filtered.map(p=>`<li><a href="${p.url}">${p.title}</a></li>`).join('') || '<li>No results</li>';
+  });
+});
+</script>

@@ -1,0 +1,4 @@
+# Redirect www to non-www and force HTTPS
+https://www.pharmacobanigwa.com/*  https://pharmacobanigwa.com/:splat  301!
+http://pharmacobanigwa.com/*  https://pharmacobanigwa.com/:splat  301!
+http://www.pharmacobanigwa.com/*  https://pharmacobanigwa.com/:splat  301!
